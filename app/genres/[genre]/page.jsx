@@ -7,10 +7,9 @@ import Spinner from '../../../components/Spinner';
 import Link from 'next/link';
 import genresList from '../../../data';
 
-const page = () => {
+const GenrePage = () => {
 
-    const genreId  = useParams()?
-    .genre;
+    const genreId  = useParams()?.genre;
     const [genreAnimes, setGenreAnimes] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -31,8 +30,11 @@ const page = () => {
             setLoading(false)
         }
       }
+      
+      if (genreId) {
+        fetchData();
+      }
 
-      fetchData();
     }, [genreId])
 
     
@@ -40,7 +42,7 @@ const page = () => {
     <div>
         <h1 className='py-5 px-4 font-bold text-xl md:px-10 md:text-3xl text-center'>
             <span className='text-orange-600'>
-                {genresList.find((genre) => genre.id === genreId).name}
+                {genresList?.find((genre) => genre.id === genreId)?.name}
             </span>
             {" "}Animes :
         </h1>
@@ -62,4 +64,4 @@ const page = () => {
   )
 }
 
-export default page
+export default GenrePage
