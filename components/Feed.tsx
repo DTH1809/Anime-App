@@ -16,8 +16,8 @@ const Feed = () => {
     const [loadingSeason, setLoadingSeason] = useState(false)
 
     const handlers = useSwipeable({
-        onSwipedLeft: () => handleScroll('right'),
-        onSwipedRight: () => handleScroll('left'),
+        onSwipedLeft: () => console.log("Swiped left!"),
+        onSwipedRight: () => console.log("Swiped right!"),
         onSwipedUp: () => console.log("Swiped up!"),
         onSwipedDown: () => console.log("Swiped down!"),
         onTouchStartOrOnMouseDown: (event) => console.log("Swipe started", event),
